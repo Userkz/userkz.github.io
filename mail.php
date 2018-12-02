@@ -3,7 +3,7 @@
     $n = $_POST['number'];
     $m = $_POST['text'];
 
-    $mail_to = "my@mail.ru"; 
+    $mail_to = "nurekekamalov@gmail.com"; 
     $subject = "Письмо с обратной связи";
 
     $message = "Имя: $u\n Номер: $n\n Сообщение: $m";
