@@ -152,17 +152,18 @@ header{
 }
 .service-items{
 	display: flex;
+	align-items: flex-end;
 	justify-content: center;
 	flex-wrap: wrap;
 	margin: -60px 0 0 0;
 }
 .service-item{
-	width: 300px;
+	width: 280px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 60px 0 0 0;
+	margin: 60px 10px 0 10px;
 }
 .service-item-text{
 	color: #072b6f;
@@ -170,6 +171,9 @@ header{
     font-weight: 700;
     text-transform: uppercase;
     margin: 15px 0;
+}
+.service-item-description{
+	text-align: center;
 }
 .service-item > i{
 	font-size: 150px;
@@ -216,6 +220,34 @@ textarea{
 .form-button:hover{
 	background: #3a7dfd;
 	color: white;
+}
+.success-modal{
+	position: fixed;
+	background-color: rgba(0,0,0,0.2);
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	display: none;
+	align-items: center;
+	transition: 0.3s;
+	justify-content: center;
+}
+.success-form{
+	width: 300px;
+	height: 200px;
+	background-color: white;
+	border-radius: 5px;
+	margin: auto;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: green;
+}
+.success-form > i{
+	font-size: 3em;
+	margin: 0 10px 0 0;
 }
 
 

@@ -7,11 +7,25 @@ $(document).ready(function(){
 		    url: "mail.php",
 		    data: th.serialize()
 	    }).done(function(){
-	        alert("Thank you!");
+	        $(".success-modal").css("display", "flex");
 	        setTimeout(function() {
 	            th.trigger("reset");
 	        }, 1000);
 	    });
 	    return false;
 	});
+	$(".success-modal").click(function(){
+		$(this).css("display", "none");
+	}).children().click(function(e){
+        e.stopPropagation();
+    });
+	$(".service-item-text").click(function(){
+		$(this).siblings(".service-item-modal").css("display", "flex");
+	});
+	$(".service-item-modal").click(function(){
+		$(".service-item-modal").css("display", "none");
+	}).children().click(function(e){
+        e.stopPropagation();
+    });
+
 });
