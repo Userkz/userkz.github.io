@@ -1,15 +1,35 @@
 <?php
-    $u = $_POST['name'];
-    $n = $_POST['number'];
-    $m = $_POST['text'];
 
-    $mail_to = "nurekekamalov@gmail.com"; 
-    $subject = "Письмо с обратной связи";
+/* https://api.telegram.org/bot658350439:AAGq1YceoD_WZYOcOVIdh1zLGJN0WBsdz1o/getUpdates,
+где, XXXXXXXXXXXXXXXXXXXXXXX - токен вашего бота, полученный ранее */
+$_GET['d'];
+$text = $_POST['name'];
+$phone = $_POST['number'];
+$coment = $_POST['text'];
+$ip = $_SERVER['REMOTE_ADDR'];
 
-    $message = "Имя: $u\n Номер: $n\n Сообщение: $m";
 
-    $headers= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-type: text/html; charset=utf-8\r\n";
-    $headers .= "From: Тестовое письмо <no-reply@test.com>\r\n";
-    mail($mail_to, $subject, $message, $headers);
-    
+$hour = date("H:i:s");
+$today = date("d.m.Y");
+$token = "658350439:AAGq1YceoD_WZYOcOVIdh1zLGJN0WBsdz1o";
+$chat_id = "-305830337";
+$arr = array(
+  'Имя:'=> $text,
+  'Телефон:' => $phone,
+  'Коментарий:' => $coment,
+  'Сағат:' => $hour,
+  'Берілген күн:' => $today
+);
+
+foreach($arr as $key => $value) {
+  $txt .= "<b>".$key."</b> ".$value."%0A";
+};
+
+$sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
+
+if ($sendToTelegram) {
+  header('Location: thank-you.html');
+} else {
+  echo "Error";
+}
+?>
